@@ -1,12 +1,283 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Espresso Elegance | El mejor café</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <hr>Hola
-    <H1>Heidy Bacacela</H1>
+
+    <!-- Header / Nav -->
+    <header id="header">
+        <a href="#" class="logo">
+            <i class="fa-solid fa-mug-hot"></i>
+            Espresso Elegance
+        </a>
+        
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#pedidos">Pedidos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <!-- Shopping Cart Icon -->
+            <div class="cart-icon-container" id="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-counter" id="cart-counter">0</span>
+            </div>
+            <a href="#menu" class="btn btn-beige">Ordenar Ahora</a>
+        </div>
+
+        <div class="mobile-menu-btn" id="mobile-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Pedido</h3>
+            <button class="close-cart" id="close-cart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items will be generated here by JS -->
+            <div class="empty-cart-msg">Tu carrito está vacío</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-outline-dark" id="empty-cart-btn">Vaciar</button>
+                <button class="btn btn-primary" id="checkout-btn">Finalizar Compra</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content fade-in">
+            <span class="hero-subtitle">Cafetería Premium</span>
+            <h1 class="hero-title">El <span class="accent">mejor café</span> de tu día</h1>
+            <p class="hero-desc">Una experiencia diseñada para despertar tus sentidos en un ambiente sofisticado.</p>
+            <a href="#menu" class="btn btn-primary btn-large">Ver Menú</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="products-section pb-0" id="menu">
+        <div class="container">
+            <h2 class="section-title slide-up">Nuestras Especialidades</h2>
+            
+            <div class="grid-cards">
+                <!-- Product 1 -->
+                <div class="card slide-up">
+                    <div class="card-img">
+                        <img src="images/espresso.png" alt="Espresso Perfecto" onerror="this.src='https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Espresso Perfecto</h3>
+                        <p class="card-desc">Intenso, con cuerpo y crema dorada.</p>
+                        <div class="card-price">$3.50</div>
+                        <button class="btn btn-primary add-to-cart-btn" data-id="1" data-name="Espresso Perfecto" data-price="3.50">
+                            <i class="fa-solid fa-cart-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="card slide-up" style="transition-delay: 100ms;">
+                    <div class="card-img">
+                        <img src="images/cappuccino.png" alt="Cappuccino Clásico" onerror="this.src='https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Cappuccino Clásico</h3>
+                        <p class="card-desc">Equilibrio ideal de espresso y espuma.</p>
+                        <div class="card-price">$4.25</div>
+                        <button class="btn btn-primary add-to-cart-btn" data-id="2" data-name="Cappuccino Clásico" data-price="4.25">
+                            <i class="fa-solid fa-cart-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="card slide-up" style="transition-delay: 200ms;">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1557006021-b85faa2bc5e2?auto=format&fit=crop&w=600&q=80" alt="Iced Caramel Latte">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Iced Caramel Latte</h3>
+                        <p class="card-desc">Refrescante con jarabe artesanal.</p>
+                        <div class="card-price">$4.75</div>
+                        <button class="btn btn-primary add-to-cart-btn" data-id="3" data-name="Iced Caramel Latte" data-price="4.75">
+                            <i class="fa-solid fa-cart-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Orders Section -->
+    <section class="orders-section bg-cream" id="pedidos">
+        <div class="container">
+            <div class="orders-grid">
+                <div class="orders-text slide-in-left">
+                    <h2 class="section-title text-left">Haz tu pedido</h2>
+                    <p>Completa el formulario para realizar un pedido rápido. Nuestro equipo lo preparará de inmediato.</p>
+                </div>
+                <div class="orders-form-wrapper slide-in-right">
+                    <form id="order-form" class="order-form">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" required placeholder="Ej: Juan Pérez">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Ej: 099 123 4567">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="product">Producto</label>
+                                <select id="product" name="product" required>
+                                    <option value="" disabled selected>Selecciona un producto...</option>
+                                    <option value="Espresso Perfecto">Espresso Perfecto - $3.50</option>
+                                    <option value="Cappuccino Clásico">Cappuccino Clásico - $4.25</option>
+                                    <option value="Iced Caramel Latte">Iced Caramel Latte - $4.75</option>
+                                </select>
+                            </div>
+                            <div class="form-group half">
+                                <label for="quantity">Cantidad</label>
+                                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Realizar Pedido</button>
+                        <div id="form-msg" class="form-msg"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payments-section" id="pagos">
+        <div class="container">
+            <h2 class="section-title text-center slide-up">Formas de Pago</h2>
+            <div class="payments-grid">
+                <div class="payment-card slide-up">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <h4>Efectivo</h4>
+                    <p>Paga al recibir en nuestro local.</p>
+                </div>
+                <div class="payment-card slide-up" style="transition-delay: 100ms;">
+                    <i class="fa-regular fa-credit-card"></i>
+                    <h4>Tarjeta</h4>
+                    <p>Aceptamos Visa, Mastercard y Amex.</p>
+                </div>
+                <div class="payment-card slide-up" style="transition-delay: 200ms;">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <h4>Transferencia</h4>
+                    <p>Transferencias bancarias directas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section bg-cream" id="nosotros">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img slide-in-left">
+                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80" alt="Nuestra Cafetería">
+                </div>
+                <div class="about-text slide-in-right">
+                    <span class="subtitle">Nuestra Historia</span>
+                    <h2>Pasión por el detalle, amor por el café</h2>
+                    <p>Fundada en 2018, Espresso Elegance nació con una misión sencilla: elevar la experiencia diaria de tomar café. Creemos que una taza de café no es solo una bebida, es un ritual.</p>
+                    <p>Trabajamos directamente con pequeños productores para garantizar granos de la más alta calidad, tostados cuidadosamente para resaltar su sabor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section" id="ubicacion">
+        <div class="container">
+            <h2 class="section-title text-center slide-up">Nuestra Ubicación</h2>
+            <div class="location-content slide-up">
+                <p class="location-address"><i class="fa-solid fa-location-dot"></i> Av. de los Shyris y Naciones Unidas, Quito, Ecuador</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.231923019808!2d-78.48624137255147!3d-0.18042512683884393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a72b226eac7%3A0xe2da2ab72e382025!2sParque%20La%20Carolina!5e0!3m2!1ses!2sec!4v1683226998492!5m2!1ses!2sec" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo footer-logo">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        Espresso Elegance
+                    </a>
+                    <p>Elevamos tu experiencia cafetera con cada gota. Un ambiente moderno y elegante hecho para ti.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contacto</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> Quito, Ecuador</p>
+                    <p><i class="fa-solid fa-phone"></i> +593 99 123 4567</p>
+                    <p><i class="fa-solid fa-envelope"></i> hola@espressoelegance.com</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Horarios</h3>
+                    <ul class="hours-list">
+                        <li><span>Lun - Vie</span> <span>7:00 AM - 8:00 PM</span></li>
+                        <li><span>Sábados</span> <span>8:00 AM - 9:00 PM</span></li>
+                        <li><span>Domingos</span> <span>8:30 AM - 6:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Espresso Elegance. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/593991234567" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
 </body>
 </html>
